@@ -27,16 +27,16 @@ def generate_launch_description():
         description='Z location for robot to spawn'
     )
 
-    spawn_br_cmd = Node(
+    spawn_metrobot_cmd = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         name='model_spawner',
-        arguments=['-entity', 'br', '-topic', '/robot_description', '-x', x, '-y', y, '-z', z]
+        arguments=['-entity', 'metrobot', '-topic', '/robot_description', '-x', x, '-y', y, '-z', z]
     )
 
     ld = LaunchDescription()
     ld.add_action(declare_x_cmd)
     ld.add_action(declare_y_cmd)
     ld.add_action(declare_z_cmd)
-    ld.add_action(spawn_br_cmd)
+    ld.add_action(spawn_metrobot_cmd)
     return ld
